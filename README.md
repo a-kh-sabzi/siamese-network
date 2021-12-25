@@ -20,7 +20,7 @@ Sometimes the number of classes are dynamic or the number of samples per class i
 
 Normal networks output a class label for classifying problems. But siamese networks output a similarity score that compares the two inputs of the network. These networks are made from two twin sub-networks that share their weights. Each of these sub-networks takes an input and extracts their features. Then these features are used to compare the inputs. 
 
-As mentioned, Siamese Networks output a similarity score rather than a class label. This means that these networks can't be used for ened-to-end classifying and you still need further processing to classify a sample. 
+As mentioned, Siamese Networks output a similarity score rather than a class label. This means that these networks can't be used for end-to-end classifying and you still need further processing to classify a sample. 
 
 ## Network Architecture
 
