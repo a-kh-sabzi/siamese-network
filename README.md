@@ -16,7 +16,7 @@ The first 30 alphabets were used for training and the rest were used for evaluat
 
 ## Siamese Network
 
-Sometimes the number of classes are dynamic or the number of samples per class is small. In these cases, we can't use normal networks. Because, we either have to retrain them as the number of classes change or the number of samples won't be enough to train an accurate network. A solution to these problems is to use siamese networks. 
+Sometimes the number of classes are dynamic or the number of samples per class is small. In these cases, we can't use normal networks. Because, we either have to retrain them as the number of classes changes or the number of samples won't be enough to train an accurate network. A solution to these problems is to use siamese networks. 
 
 Normal networks output a class label for classifying problems. But siamese networks output a similarity score that compares the two inputs of the network. These networks are made from two twin sub-networks that share their weights. Each of these sub-networks takes an input and extracts their features. Then these features are used to compare the inputs. 
 
