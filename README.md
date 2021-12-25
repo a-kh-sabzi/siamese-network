@@ -22,6 +22,32 @@ Normal networks output a class label for classifying problems. But siamese netwo
 
 As mentioned, Siamese Networks output a similarity score rather than a class label. This means that these networks can't be used for ened-to-end classifying and you still need further processing to classify a sample. 
 
+## Network Architecture
+
+The siamese network used in this project is depicted below:
+
+![model architecture](/assets/images/model_named.png)
+
+The sub-model in the above image is shown below:
+
+![sub model architecture](/assets/images/sub_model_named.png)
+
+## Training
+
+This network was trained on 19280 samples from 964 different classes. Optimiaztion was done using Adam optimizor with a learning rate of 0.001. Training batch size was 32. Each sample was paired with another sample from the same class and a sample from another random class. Thus, each epoch of training was done over 38560 pairs. The model was implemented in keras and it was trained for 10 epochs.
+
+## Evaluation
+
+This network was evaluated using the n-way one shot testing method. Each under test sample was compared with one sample from the same class and n-1 samples from other classes. If the similarity score for the correct class was the highest then the prediction was correct. This test was repeated k times for k different samples. The percentage of the correct predictions is the accuracy of the network. Input of a 20-way one shot testing for a sample is shown below.
+
+![one shot testing's input](/assets/images/one_shot_testing.png)
+
+Accuracy of 20-way one shot testing for 500 random samples from training images is 89.6%.
+
+Accuracy of 20-way one shot testing for 500 random samples from evaluation images is 77.2%.
+
+The network was trained for 10 epochs. These accuracies can increase with further training.  
+
 ## References
 
 [Lake, B. M., Salakhutdinov, R., and Tenenbaum, J. B. (2015). Human-level concept learning through probabilistic program induction.](http://www.sciencemag.org/content/350/6266/1332.short) _Science_, 350(6266), 1332-1338.
