@@ -73,4 +73,3 @@ def on_shot_testing(model, path,
     correct_percent = (100.0 * n_correct / n_tests)
 
     return correct_percent
-
