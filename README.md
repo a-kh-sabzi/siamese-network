@@ -10,17 +10,17 @@ This neural network was trained and tested on [Omniglot data set](https://github
 
 ![examples from the data set](/assets/images/omniglot_grid.jpg)
 
-This data set includes 1623 hand drawn characters from 50 different alphabets. There are 20 examples for every character. Thus, we have 1623 different classes and 20 samples from each class.
+This data set includes 1623 hand-drawn characters from 50 different alphabets, and There are 20 examples for every character. Thus, we have 1623 different classes and 20 samples from each class.
 
-The first 30 alphabets were used for training and the rest were used for evaluating the network. This means, we have 964 classes for training.
+The first 30 alphabets were used for training, and The rest were used for evaluating the network. Therefore, we have 964 classes for training.
 
 ## Siamese Network
 
-Sometimes the number of classes are dynamic or the number of samples per class is small. In these cases, we can't use normal networks. Because, we either have to retrain them as the number of classes changes or the number of samples won't be enough to train an accurate network. A solution to these problems is to use siamese networks. 
+Sometimes the number of classes is dynamic, or The number of samples per class is small. In these cases, We can't use normal networks because We either have to retrain them as the number of classes changes, or The number of samples won't be enough to train an accurate network. A solution to these problems is to use siamese networks. 
 
-Normal networks output a class label for classifying problems. But siamese networks output a similarity score that compares the two inputs of the network. These networks are made from two twin sub-networks that share their weights. Each of these sub-networks takes an input and extracts their features. Then these features are used to compare the inputs. 
+Normal networks output a class label for classifying problems, but Siamese networks output a similarity score that compares the two inputs of the network. These networks are made from two twin sub-networks that share their weights, and Each of these sub-networks takes an input and extracts its features. Later, these features are used to compare the inputs. 
 
-As mentioned, Siamese Networks output a similarity score rather than a class label. This means that these networks can't be used for end-to-end classifying and you still need further processing to classify a sample. 
+As mentioned, Siamese Networks output a similarity score rather than a class label, so These networks can't be used for end-to-end classification, and You still need further steps to classify a sample. 
 
 ## Network Architecture
 
@@ -34,19 +34,19 @@ The sub-model in the above image is shown below:
 
 ## Training
 
-This network was trained on 19280 samples from 964 different classes. Optimiaztion was done using Adam optimizor with a learning rate of 0.001. Training batch size was 32. Each sample was paired with another sample from the same class and a sample from another random class. Thus, each epoch of training was done over 38560 pairs. The model was implemented in keras and it was trained for 10 epochs.
+This network was trained on 19280 samples from 964 different classes, and Optimization was done using an Adam optimizer with a learning rate of 0.001. The training batch size was 32, and Each sample was paired with another sample from the same class and a sample from another random class. Thus, Each epoch of training was done over 38560 pairs. The model was implemented in Keras (TensorFlow), and It was trained for 10 epochs.
 
 ## Evaluation
 
-This network was evaluated using the n-way one shot testing method. Each under test sample was compared with one sample from the same class and n-1 samples from other classes. If the similarity score for the correct class was the highest then the prediction was correct. This test was repeated k times for k different samples. The percentage of the correct predictions is the accuracy of the network. Input of a 20-way one shot testing for a sample is shown below.
+This network was evaluated using the n-way one-shot testing method, and Each under-test sample was compared with one sample from the same class and n-1 samples from other classes. If the similarity score for the correct class was the highest then the prediction was correct. This test was repeated k times for k different samples, and The percentage of the correct predictions is the accuracy of the network. The input of 20-way one-shot testing for a sample is shown below.
 
 ![one shot testing's input](/assets/images/one_shot_testing.png)
 
-Accuracy of 20-way one shot testing for 500 random samples from training images is 89.6%.
+The accuracy of 20-way one-shot testing for 500 random samples from training images is 89.6%.
 
-Accuracy of 20-way one shot testing for 500 random samples from evaluation images is 77.2%.
+The accuracy of 20-way one-shot testing for 500 random samples from evaluation images is 77.2%.
 
-The network was trained for 10 epochs. These accuracies can increase with further training.  
+The network was trained for 10 epochs, so These accuracies can increase with further training.  
 
 ## References
 
